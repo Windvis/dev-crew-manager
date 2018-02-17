@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "icon": "🎩",
+    "firstName": "Nick",
+    "lastName": "Smet",
+    "role": "Full-stack",
+    "frameworks": [
+      "React",
+      "Laravel"
+    ]
+  },
+  {
+    "id": 2,
+    "icon": "🦉",
+    "firstName": "Wim",
+    "lastName": "Van Aerschot",
+    "role": "Front-end",
+    "frameworks": [
+      "React",
+      "Vue"
+    ]
+  }
+]
