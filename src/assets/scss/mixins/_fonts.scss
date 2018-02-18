@@ -1,0 +1,14 @@
+@mixin font-open-sans() {
+  font-family: $font-open-sans;
+  font-weight: 400;
+}
+
+@mixin font-open-sans-semi-bold() {
+  font-family: $font-open-sans;
+  font-weight: 600;
+}
+
+@mixin font-montserrat() {
+  font-family: $font-montserrat;
+  font-weight: 700;
+}

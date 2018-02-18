@@ -1,0 +1,8 @@
+@import 'fonts';
+@import 'headings';
+
+body {
+  @include font-open-sans;
+
+  color: $color-text;
+}
