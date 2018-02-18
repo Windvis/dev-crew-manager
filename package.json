@@ -16,12 +16,18 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "css": "node-sass-chokidar src/assets/scss -o src/assets/css && postcss src/assets/css/*.css --use autoprefixer -d src/assets/css",
+    "watch-css": "nodemon -e scss -x 'npm run css'",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/standard",
     "lint-fix": "./node_modules/.bin/standard --fix"
   },
   "devDependencies": {
+    "autoprefixer": "^8.0.0",
+    "node-sass-chokidar": "0.0.3",
+    "nodemon": "^1.15.0",
+    "postcss-cli": "^5.0.0",
     "standard": "^10.0.3"
   },
   "standard": {
