@@ -1,0 +1,38 @@
+@mixin colored-button($color) {
+  color: $color;
+  background-color: $color-white;
+
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-succes;
+  }
+}
+
+.button {
+  @include font-open-sans-semi-bold();
+
+  display: inline-block;
+  padding: $spacing-xs $spacing-sm;
+
+  background-color: transparent;
+  border: {
+    width: 1px;
+    style: solid;
+    color: currentColor;
+    radius: 16px;
+  }
+  outline: none;
+
+  appearance: none;
+  
+  cursor: pointer;
+}
+
+.button--success {
+  @include colored-button($color-succes);
+}
+
+.button--danger {
+  @include colored-button($color-danger);
+}

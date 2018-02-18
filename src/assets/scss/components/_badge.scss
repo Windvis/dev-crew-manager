@@ -1,0 +1,12 @@
+.badge {
+  padding: 6px $spacing-xs;
+
+  color: $color-black;
+
+  border: 1px solid #DAE2E4;
+  border-radius: 4px;
+
+  & + & {
+    margin-left: $spacing-xs;
+  }
+}

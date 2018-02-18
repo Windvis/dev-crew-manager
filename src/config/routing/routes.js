@@ -3,7 +3,7 @@ import {
   R_HIRE_DEVELOPER,
   R_UPDATE_DEVELOPER_INFO
 } from './route-types'
-import { OverviewPage } from '../../views/pages/OverviewPage'
+import OverviewPage from '../../views/pages/OverviewPage'
 import { HireDeveloperPage } from '../../views/pages/HireDeveloperPage'
 
 export const ROUTES = {
