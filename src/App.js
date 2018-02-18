@@ -1,22 +1,11 @@
 import React, { Component } from 'react'
-import { LayoutProvider } from 'react-page-layout'
+import PageManager from './views/components/PageManager/PageManager'
 import './App.css'
-import { OverviewPage } from './views/pages/OverviewPage'
-import { LAYOUTS } from './config/layouts/index'
-import MainLayout from './views/layouts/MainLayout'
-
-const layouts = {
-  [LAYOUTS.main.name]: MainLayout
-}
-
-console.log(layouts)
 
 class App extends Component {
   render () {
     return (
-      <LayoutProvider layouts={layouts}>
-        <OverviewPage />
-      </LayoutProvider>
+      <PageManager />
     )
   }
 }
