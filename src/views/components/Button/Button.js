@@ -1,5 +1,5 @@
 import React from 'react'
-import classNames from 'classnames'
+import { getButtonClasses } from '../../../utils/button/getButtonClasses'
 
 export function Button ({
   children,
@@ -9,15 +9,7 @@ export function Button ({
 }) {
   return (
     <button
-      className={
-        classNames(
-          'button', {
-            'button--success': type === 'success',
-            'button--danger': type === 'danger'
-          },
-          className
-        )
-      }
+      className={getButtonClasses(type, className)}
       onClick={clickHandler}
     >
       {children}

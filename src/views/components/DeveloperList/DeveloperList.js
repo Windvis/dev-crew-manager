@@ -41,7 +41,7 @@ function renderDeveloperData (developers, fireDeveloper) {
   return developers.map((developer) => (
     <tr className='developer-list__data' key={developer.id}>
       <td className='developer-list__data__icon'>
-        <span role='image'>{developer.icon}</span>
+        <span role='img'>{developer.icon}</span>
       </td>
       <td>{developer.firstName}</td>
       <td>{developer.lastName}</td>
@@ -50,7 +50,7 @@ function renderDeveloperData (developers, fireDeveloper) {
       <td className='developer-list__data__actions'>
         <Link className='link' to={navigateToUpdatePage(developer.id)}>Edit</Link>
         <Button
-          className='test'
+          type='danger'
           clickHandler={() => fireDeveloper(developer.id)}
         >
           Fire

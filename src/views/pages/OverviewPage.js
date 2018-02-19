@@ -2,12 +2,18 @@ import React from 'react'
 import { Page, Section } from 'react-page-layout'
 import { LAYOUTS } from '../../config/layouts/index'
 import DeveloperList from '../components/DeveloperList/DeveloperList'
+import { IconHeading } from '../components/IconHeading/IconHeading'
+import { navigateToHirePage } from '../../redux/location/actions'
+import { ButtonLink } from '../components/ButtonLink/ButtonLink'
 
 export default function OverviewPage ({developers}) {
   return (
     <Page layout={LAYOUTS.main.name}>
       <Section slot={LAYOUTS.main.slots.header}>
-        <h1>👓Developers</h1>
+        <div className='overview-page__header'>
+          <IconHeading icon={'👨‍💻'} >Developers</IconHeading>
+          <ButtonLink type='success' to={navigateToHirePage()}>Hire</ButtonLink>
+        </div>
       </Section>
       <Section slot={LAYOUTS.main.slots.content}>
         <DeveloperList />

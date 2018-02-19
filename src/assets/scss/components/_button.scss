@@ -1,11 +1,13 @@
 @mixin colored-button($color) {
   color: $color;
+  text-decoration: none;
+
   background-color: $color-white;
 
   &:hover,
   &:focus {
     color: $color-white;
-    background-color: $color-succes;
+    background-color: $color;
   }
 }
 
