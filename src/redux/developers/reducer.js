@@ -27,7 +27,7 @@ const actionHandlers = {
 
       return developer
     })
-  },
+  }
 }
 
 export default createReducer(initialState, actionHandlers)
