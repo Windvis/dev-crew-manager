@@ -4,7 +4,8 @@ import {
   R_UPDATE_DEVELOPER_INFO
 } from './route-types'
 import OverviewPage from '../../views/pages/OverviewPage'
-import { HireDeveloperPage } from '../../views/pages/HireDeveloperPage'
+import HireDeveloperPage from '../../views/pages/HireDeveloperPage'
+import UpdateDeveloperInfoPage from '../../views/pages/UpdateDeveloperInfoPage'
 
 export const ROUTES = {
   [R_OVERVIEW]: {
@@ -17,6 +18,6 @@ export const ROUTES = {
   },
   [R_UPDATE_DEVELOPER_INFO]: {
     path: '/developer/:id/update',
-    page: OverviewPage
+    page: UpdateDeveloperInfoPage
   }
 }

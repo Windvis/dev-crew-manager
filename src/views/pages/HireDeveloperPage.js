@@ -5,14 +5,14 @@ import { LAYOUTS } from '../../config/layouts/index'
 import { IconHeading } from '../components/IconHeading/IconHeading'
 import { navigateToOverviewPage } from '../../redux/location/actions'
 
-export function HireDeveloperPage () {
+export default function HireDeveloperPage () {
   return (
-    <Page layout={LAYOUTS.main.name} className='hire-developer-page'>
+    <Page layout={LAYOUTS.main.name} className='hire-developer-page form-page'>
       <Section slot={LAYOUTS.main.slots.header}>
         <IconHeading icon={'🤝'}>Hire</IconHeading>
       </Section>
       <Section slot={LAYOUTS.main.slots.content}>
-        <div className='hire-developer-page__content container'>
+        <div className='hire-developer-page__content form-page__content container'>
           <Link className='link' to={navigateToOverviewPage()}>Back to developers</Link>
         </div>
       </Section>
