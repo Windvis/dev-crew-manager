@@ -3,7 +3,7 @@
 
   color: $color-black;
 
-  border: 1px solid #DAE2E4;
+  border: 1px solid $badge-border-color;
   border-radius: 4px;
 
   & + & {

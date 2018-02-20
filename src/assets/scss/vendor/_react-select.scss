@@ -1,0 +1,18 @@
+@import 'react-select/scss/default';
+
+// React-select style overrides
+
+.Select.is-open > .Select-control {
+  border-color: $color-grey--light;
+}
+
+.Select--multi {
+  .Select-value {
+    margin-top: 0;
+    vertical-align: middle;
+  }
+
+  .Select-value-icon {
+    padding: $spacing-xs;
+  }
+}

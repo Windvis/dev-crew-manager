@@ -4,7 +4,7 @@
 
 .developer-list {
   width: 100%;
-  min-width: 980px;
+  min-width: #{768 - ($spacing-sm * 2)};
   margin: $spacing-lg 0;
 
   border-collapse: separate;

@@ -16,7 +16,7 @@ function updateDeveloperInfo ({developer}) {
       </Section>
       <Section slot={LAYOUTS.main.slots.content}>
         <div className='update-developer-info-page__content form-page__content container'>
-          <Link className='link' to={navigateToOverviewPage()}>Back to developers</Link>
+          <Link className='link return-to-overview-link' to={navigateToOverviewPage()}>Back to developers</Link>
         </div>
       </Section>
     </Page>

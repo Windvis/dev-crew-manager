@@ -1,0 +1,37 @@
+// Variable overrides
+// ------------------------------
+
+// control options
+$select-input-bg: $color-white;
+$select-input-border-color: $color-grey--light;
+$select-input-border-radius: 4px;
+$select-input-border-focus: $select-input-border-color;
+$select-input-placeholder: $color-text;
+$select-text-color: $color-black;
+$select-input-hover-box-shadow: none;
+
+$select-padding-vertical: $spacing-xs;
+$select-padding-horizontal: $spacing-xs;
+
+// menu options
+$select-option-color: lighten($select-text-color, 20%) !default;
+$select-option-focused-color: $select-text-color !default;
+$select-option-focused-bg: $color-grey--light;
+$select-option-selected-color: $select-text-color !default;
+$select-option-selected-bg: $color-grey--lighter;
+
+// arrow indicator
+$select-arrow-color: $color-grey--light;
+$select-arrow-color-hover: $color-grey;
+$select-arrow-width: 4px;
+
+// multi-select item
+$select-item-border-radius: 4px;
+$select-item-gutter: $spacing-xs;
+$select-item-padding-vertical: $spacing-xs;
+$select-item-padding-horizontal: $spacing-xs;
+$select-item-font-size: .9em !default;
+$select-item-color: $color-black;
+$select-item-bg: $color-white;
+$select-item-border-color: $badge-border-color;
+$select-item-hover-color: $color-black;
