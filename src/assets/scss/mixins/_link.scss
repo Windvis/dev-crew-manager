@@ -1,0 +1,7 @@
+@mixin link() {
+  color: $color-grey--dark;
+
+  &:hover {
+    color: $color-black;
+  }
+}

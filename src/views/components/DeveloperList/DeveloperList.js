@@ -48,7 +48,7 @@ function renderDeveloperData (developers, fireDeveloper) {
       <td>{developer.role}</td>
       <td>{developer.frameworks.map((framework) => <span key={framework} className='badge'>{framework}</span>)}</td>
       <td className='developer-list__data__actions'>
-        <Link className='link' to={navigateToUpdatePage(developer.id)}>Edit</Link>
+        <Link className='developer-list__data__edit-link' to={navigateToUpdatePage(developer.id)}>Edit</Link>
         <Button
           type='danger'
           clickHandler={() => fireDeveloper(developer.id)}

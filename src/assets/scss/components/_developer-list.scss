@@ -60,3 +60,11 @@ td.developer-list__data__actions {
     margin-left: $spacing-md;
   }
 }
+
+.developer-list__data__edit-link {
+  @include link();
+  @include font-open-sans-semi-bold();
+  
+  color: inherit;
+  text-decoration: none;
+}
