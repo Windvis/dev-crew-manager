@@ -1,12 +1,12 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { connect } from 'react-redux'
 import Link from 'redux-first-router-link'
 import { Button } from '../Button/Button'
 import { navigateToUpdatePage, navigateToHirePage } from '../../../redux/location/actions'
 import { fireDeveloper as fireDeveloperActionCreator } from '../../../redux/developers/actions'
-import { getFilteredDevelopers } from '../../../redux/overview/selectors'
+import { getFilteredDevelopers, areFiltersSelected } from '../../../redux/overview/selectors'
 
-function DeveloperList ({developers, fireDeveloper}) {
+function DeveloperList ({developers, fireDeveloper, areFiltersSelected}) {
   if (developers.length > 0) {
     return (
       <div className='container developer-list-container'>
@@ -31,8 +31,16 @@ function DeveloperList ({developers, fireDeveloper}) {
 
   return (
     <p className='container'>
-      You don't have any developers in your organisation?! You should&nbsp;
-      <Link className='link' to={navigateToHirePage()}>hire</Link> some!
+      {!areFiltersSelected ? (
+        <Fragment>
+          You don't have any developers in your organisation?! You should&nbsp;
+          <Link className='link' to={navigateToHirePage()}>hire</Link> some!
+        </Fragment>
+      ) : (
+        <Fragment>
+          No developers found matching the current filter selection.
+        </Fragment>
+      )}
     </p>
   )
 }
@@ -62,7 +70,8 @@ function renderDeveloperData (developers, fireDeveloper) {
 
 function mapStateToProps (state) {
   return {
-    developers: getFilteredDevelopers(state)
+    developers: getFilteredDevelopers(state),
+    areFiltersSelected: areFiltersSelected(state)
   }
 }
 
