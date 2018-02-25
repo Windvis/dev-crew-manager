@@ -6,7 +6,7 @@ export const REDUCER_KEY = 'overview'
 const initialState = {
   filters: {
     role: '',
-    frameworks: ['React']
+    frameworks: []
   }
 }
 
