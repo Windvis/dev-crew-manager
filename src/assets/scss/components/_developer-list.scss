@@ -1,11 +1,12 @@
 .developer-list-container {
-  overflow-x: scroll;
+  margin: $spacing-lg auto;
+  
+  overflow-x: auto;
 }
 
 .developer-list {
   width: 100%;
   min-width: #{768 - ($spacing-sm * 2)};
-  margin: $spacing-lg 0;
 
   border-collapse: separate;
   border-spacing: 0 $spacing-sm;

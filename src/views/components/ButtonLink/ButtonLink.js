@@ -6,10 +6,11 @@ export function ButtonLink (props) {
   const {
     children,
     className,
-    type = 'success'
+    buttonStyle = 'success',
+    ...otherProps
   } = props
 
   return (
-    <Link className={getButtonClasses(type, className)} {...props}>{children}</Link>
+    <Link className={getButtonClasses(buttonStyle, className)} {...otherProps}>{children}</Link>
   )
 }

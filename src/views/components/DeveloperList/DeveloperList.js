@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Link from 'redux-first-router-link'
 import { Button } from '../Button/Button'
-import { getDevelopers } from '../../../redux/developers/selectors'
 import { navigateToUpdatePage, navigateToHirePage } from '../../../redux/location/actions'
-import {fireDeveloper as fireDeveloperActionCreator} from '../../../redux/developers/actions'
+import { fireDeveloper as fireDeveloperActionCreator } from '../../../redux/developers/actions'
+import { getFilteredDevelopers } from '../../../redux/overview/selectors'
 
 function DeveloperList ({developers, fireDeveloper}) {
   if (developers.length > 0) {
@@ -50,7 +50,7 @@ function renderDeveloperData (developers, fireDeveloper) {
       <td className='developer-list__data__actions'>
         <Link className='developer-list__data__edit-link' to={navigateToUpdatePage(developer.id)}>Edit</Link>
         <Button
-          type='danger'
+          buttonStyle='danger'
           clickHandler={() => fireDeveloper(developer.id)}
         >
           Fire
@@ -62,7 +62,7 @@ function renderDeveloperData (developers, fireDeveloper) {
 
 function mapStateToProps (state) {
   return {
-    developers: getDevelopers(state)
+    developers: getFilteredDevelopers(state)
   }
 }
 

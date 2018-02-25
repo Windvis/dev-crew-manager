@@ -1,0 +1,26 @@
+.overview-filters {
+  margin-top: $spacing-lg;
+  margin-bottom: $spacing-lg;
+
+  @media($breakpoint-tablet--portrait) {
+    text-align: right;
+  }
+}
+
+.overview-filters__filter {
+  text-align: left;
+
+  & + & {
+    margin-top: $spacing-xs;
+  }
+
+  @media($breakpoint-tablet--portrait) {
+    min-width: 200px;
+    display: inline-block;
+
+    & + & {
+      margin-top: 0;
+      margin-left: $spacing-xs;
+    }
+  }
+}

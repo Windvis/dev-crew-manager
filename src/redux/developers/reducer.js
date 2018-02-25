@@ -5,18 +5,16 @@ import initialState from '../../data/developers.json'
 export const REDUCER_KEY = 'developers'
 
 const actionHandlers = {
-  [HIRE_DEVELOPER]: (state, {payload: developerInfo}) => {
+  [HIRE_DEVELOPER]: (state, {developerInfo}) => {
     return [
       ...state,
       developerInfo
     ]
   },
-  [FIRE_DEVELOPER]: (state, {payload}) => {
-    const {developerId} = payload
+  [FIRE_DEVELOPER]: (state, {developerId}) => {
     return state.filter((developer) => developer.id !== developerId)
   },
-  [UPDATE_DEVELOPER_INFO]: (state, {payload}) => {
-    const {developerData} = payload
+  [UPDATE_DEVELOPER_INFO]: (state, {developerData}) => {
     return state.map((developer) => {
       if (developer.id === developerData.id) {
         return {
