@@ -11,3 +11,13 @@
 
   outline: none;
 }
+
+.field--with-errors {
+  border-color: $color-danger;
+}
+
+.select-field--with-errors {
+  .Select-control {
+    border-color: $color-danger !important; // React-select has very specific selectors
+  }
+}

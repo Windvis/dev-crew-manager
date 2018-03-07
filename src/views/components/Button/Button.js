@@ -6,13 +6,15 @@ export function Button ({
   className,
   buttonStyle = 'success',
   type = 'button',
-  clickHandler
+  clickHandler,
+  disabled
 }) {
   return (
     <button
       className={getButtonClasses(buttonStyle, className)}
       onClick={clickHandler}
       type={type}
+      disabled={disabled}
     >
       {children}
     </button>

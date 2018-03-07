@@ -1,0 +1,9 @@
+.message {
+  display: inline-block;
+  margin-left: $spacing-xs;
+}
+
+.message--error {
+  color: $color-danger;
+  font-size: 12px;
+}
