@@ -1,10 +1,14 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Form } from 'react-form'
+import uuid from 'uuid/v4'
 import { Button } from '../../Button/Button'
 import { DeveloperFields, defaultFieldValues, preSubmit } from '../FormFields/DeveloperFields'
 import { developerValidator } from '../../../../utils/forms/validators/developerValidator'
 import is from '../../../../utils/general/is'
 import { cleanFormValues } from '../../../../utils/forms/cleanFormValues'
+import { hireDeveloper as hireDeveloperAction } from '../../../../redux/developers/actions'
+import { navigateToOverviewPage } from '../../../../redux/location/actions'
 
 class HireDeveloperForm extends Component {
   constructor (props) {
@@ -16,6 +20,8 @@ class HireDeveloperForm extends Component {
   }
 
   render () {
+    const {hireDeveloper} = this.props
+
     return (
       <Form
         defaultValues={defaultFieldValues}
@@ -36,8 +42,11 @@ class HireDeveloperForm extends Component {
         preSubmit={(formValues) => {
           return cleanFormValues(formValues, preSubmit)
         }}
-        onSubmit={(submittedValues) => {
-          console.log(submittedValues)
+        onSubmit={(developerData) => {
+          developerData.id = uuid()
+          developerData.icon = '👾'
+
+          hireDeveloper(developerData)
         }}
       >
         {(formApi) => {
@@ -64,4 +73,13 @@ class HireDeveloperForm extends Component {
   }
 }
 
-export default HireDeveloperForm
+export default connect(null, mapDispatchToProps)(HireDeveloperForm)
+
+function mapDispatchToProps (dispatch) {
+  return {
+    hireDeveloper: (developerInfo) => {
+      dispatch(hireDeveloperAction(developerInfo))
+      dispatch(navigateToOverviewPage())
+    }
+  }
+}
