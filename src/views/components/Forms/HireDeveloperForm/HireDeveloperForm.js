@@ -8,6 +8,7 @@ import { developerValidator } from '../../../../utils/forms/validators/developer
 import is from '../../../../utils/general/is'
 import { hireDeveloper as hireDeveloperAction } from '../../../../redux/developers/actions'
 import { navigateToOverviewPage } from '../../../../redux/location/actions'
+import { getRandomEmoji } from '../../../../utils/general/getRandomEmoji'
 
 class HireDeveloperForm extends Component {
   constructor (props) {
@@ -40,7 +41,7 @@ class HireDeveloperForm extends Component {
         }}
         onSubmit={(developerData) => {
           developerData.id = uuid()
-          developerData.icon = '👾'
+          developerData.icon = getRandomEmoji()
 
           hireDeveloper(developerData)
         }}
