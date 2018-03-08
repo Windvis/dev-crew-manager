@@ -3,6 +3,7 @@ import {Field} from 'react-form'
 import Select from 'react-select'
 import is from '../../../../utils/general/is'
 import classNames from 'classnames'
+import { convertSelectDataToValue } from '../../../../utils/forms/select/convertSelectDataToValue'
 
 export function SelectField ({
   name,
@@ -37,7 +38,7 @@ export function SelectField ({
                   })
                 }
                 onChange={(newValue) => {
-                  setValue(newValue)
+                  setValue(convertSelectDataToValue(newValue))
                 }}
                 onBlur={() => setTouched(true)}
                 {...selectProps}

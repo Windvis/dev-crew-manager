@@ -7,6 +7,7 @@ import { IconHeading } from '../components/IconHeading/IconHeading'
 import { navigateToOverviewPage } from '../../redux/location/actions'
 import { getRouteParams } from '../../redux/location/selectors'
 import { getDeveloperById } from '../../redux/developers/selectors'
+import UpdateDeveloperForm from '../components/Forms/UpdateDeveloperForm/UpdateDeveloperForm'
 
 function updateDeveloperInfo ({developer}) {
   return (
@@ -17,6 +18,8 @@ function updateDeveloperInfo ({developer}) {
       <Section slot={LAYOUTS.main.slots.content}>
         <div className='update-developer-info-page__content form-page__content container'>
           <Link className='link return-to-overview-link' to={navigateToOverviewPage()}>Back to developers</Link>
+
+          <UpdateDeveloperForm />
         </div>
       </Section>
     </Page>

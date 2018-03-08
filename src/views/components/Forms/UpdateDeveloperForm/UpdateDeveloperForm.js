@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Form } from 'react-form'
-import uuid from 'uuid/v4'
 import { Button } from '../../Button/Button'
-import { DeveloperFields, defaultFieldValues } from '../FormFields/DeveloperFields'
+import { DeveloperFields } from '../FormFields/DeveloperFields'
 import { developerValidator } from '../../../../utils/forms/validators/developerValidator'
 import is from '../../../../utils/general/is'
-import { hireDeveloper as hireDeveloperAction } from '../../../../redux/developers/actions'
+import {
+  updateDeveloperInfo as updateDeveloperInfoAction,
+  fireDeveloper as fireDeveloperActionCreator
+} from '../../../../redux/developers/actions'
 import { navigateToOverviewPage } from '../../../../redux/location/actions'
+import { getRouteParams } from '../../../../redux/location/selectors'
+import { getDeveloperById } from '../../../../redux/developers/selectors'
 
 class HireDeveloperForm extends Component {
   constructor (props) {
@@ -19,11 +23,15 @@ class HireDeveloperForm extends Component {
   }
 
   render () {
-    const {hireDeveloper} = this.props
+    const {
+      developer,
+      updateDeveloperInfo,
+      fireDeveloper
+    } = this.props
 
     return (
       <Form
-        defaultValues={defaultFieldValues}
+        defaultValues={developer}
         validate={(values) => {
           const validatedFields = developerValidator(values)
 
@@ -38,11 +46,10 @@ class HireDeveloperForm extends Component {
 
           return validatedFields
         }}
+        validateOnMount
         onSubmit={(developerData) => {
-          developerData.id = uuid()
-          developerData.icon = '👾'
-
-          hireDeveloper(developerData)
+          developerData.id = developer.id
+          updateDeveloperInfo(developerData)
         }}
       >
         {(formApi) => {
@@ -58,7 +65,13 @@ class HireDeveloperForm extends Component {
                   buttonStyle='success'
                   disabled={!this.state.canSubmit}
                 >
-                 Hire
+                 Save
+                </Button>
+                <Button
+                  buttonStyle='danger'
+                  clickHandler={() => fireDeveloper(developer.id)}
+                >
+                 Fire
                 </Button>
               </div>
             </form>
@@ -69,12 +82,23 @@ class HireDeveloperForm extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(HireDeveloperForm)
+export default connect(mapStateToProps, mapDispatchToProps)(HireDeveloperForm)
+
+function mapStateToProps (state) {
+  const developerId = getRouteParams(state).id
+  return {
+    developer: getDeveloperById(state, developerId)
+  }
+}
 
 function mapDispatchToProps (dispatch) {
   return {
-    hireDeveloper: (developerInfo) => {
-      dispatch(hireDeveloperAction(developerInfo))
+    updateDeveloperInfo: (developerInfo) => {
+      dispatch(updateDeveloperInfoAction(developerInfo))
+      dispatch(navigateToOverviewPage())
+    },
+    fireDeveloper: (developerId) => {
+      dispatch(fireDeveloperActionCreator(developerId))
       dispatch(navigateToOverviewPage())
     }
   }

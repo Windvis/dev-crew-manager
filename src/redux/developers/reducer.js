@@ -14,12 +14,12 @@ const actionHandlers = {
   [FIRE_DEVELOPER]: (state, {developerId}) => {
     return state.filter((developer) => developer.id !== developerId)
   },
-  [UPDATE_DEVELOPER_INFO]: (state, {developerData}) => {
+  [UPDATE_DEVELOPER_INFO]: (state, {developerInfo}) => {
     return state.map((developer) => {
-      if (developer.id === developerData.id) {
+      if (developer.id === developerInfo.id) {
         return {
           ...developer,
-          ...developerData
+          ...developerInfo
         }
       }
 
