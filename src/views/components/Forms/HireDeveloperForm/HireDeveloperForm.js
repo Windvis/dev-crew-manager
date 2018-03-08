@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import { Form } from 'react-form'
 import { Button } from '../../Button/Button'
-import { DeveloperFields, defaultFieldValues } from '../FormFields/DeveloperFields'
+import { DeveloperFields, defaultFieldValues, preSubmit } from '../FormFields/DeveloperFields'
 import { developerValidator } from '../../../../utils/forms/validators/developerValidator'
 import is from '../../../../utils/general/is'
+import { cleanFormValues } from '../../../../utils/forms/cleanFormValues'
 
 class HireDeveloperForm extends Component {
   constructor (props) {
@@ -32,13 +33,19 @@ class HireDeveloperForm extends Component {
 
           return validatedFields
         }}
+        preSubmit={(formValues) => {
+          return cleanFormValues(formValues, preSubmit)
+        }}
         onSubmit={(submittedValues) => {
           console.log(submittedValues)
         }}
       >
         {(formApi) => {
           return (
-            <form onSubmit={(e) => formApi.submitForm()}>
+            <form onSubmit={(e) => {
+              e.preventDefault()
+              formApi.submitForm()
+            }}>
               <DeveloperFields formApi={formApi} />
               <div className='form-group form-buttons'>
                 <Button
@@ -48,7 +55,6 @@ class HireDeveloperForm extends Component {
                 >
                  Hire
                 </Button>
-                {/* <Button buttonStyle='danger'>Fire</Button> */}
               </div>
             </form>
           )

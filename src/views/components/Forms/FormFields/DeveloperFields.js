@@ -1,15 +1,21 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import convertObjectToSelectOptions from '../../../../utils/developers/convertObjectToSelectOptions'
-import {ROLES} from '../../../../config/developers/roles'
-import {FRAMEWORKS} from '../../../../config/developers/frameworks'
-import {SelectField} from './SelectField'
-import {TextField} from './TextField'
+import { ROLES } from '../../../../config/developers/roles'
+import { FRAMEWORKS } from '../../../../config/developers/frameworks'
+import { SelectField } from './SelectField'
+import { TextField } from './TextField'
+import { convertSelectDataToValue } from '../../../../utils/forms/select/convertSelectDataToValue'
 
 export const defaultFieldValues = {
   firstName: '',
   lastName: '',
   role: '',
   frameworks: []
+}
+
+export const preSubmit = {
+  role: convertSelectDataToValue,
+  frameworks: convertSelectDataToValue
 }
 
 export function DeveloperFields ({formApi}) {

@@ -19,7 +19,7 @@ function OverviewFilters ({getFilterValue, updateFilter}) {
         placeholder='Filter by role'
         onChange={(data) => {
           updateFilter({
-            filterName: FILTERS.ROLE, 
+            filterName: FILTERS.ROLE,
             filterValue: is.set(data) ? data.value : ''
           })
         }}
@@ -31,10 +31,10 @@ function OverviewFilters ({getFilterValue, updateFilter}) {
         name='framework-filter'
         value={getFilterValue(FILTERS.FRAMEWORKS)}
         multi
-        placeholder='Filter by frameworks'        
+        placeholder='Filter by frameworks'
         onChange={(valueData) => {
           updateFilter({
-            filterName: FILTERS.FRAMEWORKS, 
+            filterName: FILTERS.FRAMEWORKS,
             filterValue: valueData.map((data) => data.value)
           })
         }}
