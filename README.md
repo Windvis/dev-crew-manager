@@ -4,6 +4,8 @@ Simple web application test for a front-end developer position.
 
 I received a couple of screenshots of an application design which I needed to recreate as good as possible. The application itself is a fictional developer managing platform which can be used to see an overview of all developers in the company and allows filtering the list based on developer role and known frameworks. It is also possible to "hire" new developers, edit existing data and fire developers.
 
+A hosted version of the app can be found [here](https://dev-crew-manager.netlify.com/).
+
 ## Requirements
 
 - Use **create-react-app**
