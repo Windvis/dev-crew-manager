@@ -25,14 +25,16 @@
     "watch-scss": "nodemon -e scss -x 'npm run scss'",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/standard",
-    "lint-fix": "./node_modules/.bin/standard --fix"
+    "lint": "standard",
+    "lint-fix": "standard --fix",
+    "pretty": "prettier-standard 'src/**/*.js'"
   },
   "devDependencies": {
     "autoprefixer": "^8.1.0",
     "node-sass-chokidar": "0.0.3",
     "nodemon": "^1.17.1",
     "postcss-cli": "^5.0.0",
+    "prettier-standard": "^9.1.1",
     "standard": "^10.0.3"
   },
   "standard": {
