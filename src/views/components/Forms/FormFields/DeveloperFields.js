@@ -12,21 +12,15 @@ export const defaultFieldValues = {
   frameworks: []
 }
 
-export function DeveloperFields ({formApi}) {
+export function DeveloperFields ({ formApi }) {
   return (
     <Fragment>
       <div className='form-group'>
-        <TextField
-          name='firstName'
-          label='First Name'
-        />
+        <TextField name='firstName' label='First Name' />
       </div>
 
       <div className='form-group'>
-        <TextField
-          name='lastName'
-          label='Last Name'
-        />
+        <TextField name='lastName' label='Last Name' />
       </div>
 
       <div className='form-group'>
@@ -46,6 +40,5 @@ export function DeveloperFields ({formApi}) {
         />
       </div>
     </Fragment>
-
   )
 }

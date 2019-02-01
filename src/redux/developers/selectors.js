@@ -6,5 +6,7 @@ export function getDevelopers (state) {
 }
 
 export function getDeveloperById (state, developerId) {
-  return getReducerState(state, REDUCER_KEY).find((developer) => developer.id === developerId)
+  return getReducerState(state, REDUCER_KEY).find(
+    developer => developer.id === developerId
+  )
 }

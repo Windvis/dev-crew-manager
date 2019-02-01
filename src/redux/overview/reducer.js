@@ -11,7 +11,7 @@ const initialState = {
 }
 
 const actionHandlers = {
-  [UPDATE_OVERVIEW_FILTER]: (state, {filterName, filterValue}) => {
+  [UPDATE_OVERVIEW_FILTER]: (state, { filterName, filterValue }) => {
     return {
       ...state,
       filters: {

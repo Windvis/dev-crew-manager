@@ -14,7 +14,12 @@ export default function HireDeveloperPage () {
       </Section>
       <Section slot={LAYOUTS.main.slots.content}>
         <div className='hire-developer-page__content form-page__content container'>
-          <Link className='link return-to-overview-link' to={navigateToOverviewPage()}>Back to developers</Link>
+          <Link
+            className='link return-to-overview-link'
+            to={navigateToOverviewPage()}
+          >
+            Back to developers
+          </Link>
 
           <HireDeveloperForm />
         </div>

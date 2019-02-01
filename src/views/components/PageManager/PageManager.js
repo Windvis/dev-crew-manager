@@ -10,7 +10,7 @@ const layouts = {
   [LAYOUTS.main.name]: MainLayout
 }
 
-function PageManager ({PageComponent}) {
+function PageManager ({ PageComponent }) {
   return (
     <LayoutProvider layouts={layouts}>
       {PageComponent ? <PageComponent /> : null}
@@ -20,7 +20,7 @@ function PageManager ({PageComponent}) {
 
 function mapStateToProps (state) {
   const routeType = getRouteType(state)
-  const {page} = getRouteData(routeType)
+  const { page } = getRouteData(routeType)
 
   return {
     PageComponent: page

@@ -7,13 +7,15 @@ import { IconHeading } from '../components/IconHeading/IconHeading'
 import { navigateToHirePage } from '../../redux/location/actions'
 import { ButtonLink } from '../components/ButtonLink/ButtonLink'
 
-export default function OverviewPage ({developers}) {
+export default function OverviewPage ({ developers }) {
   return (
     <Page layout={LAYOUTS.main.name}>
       <Section slot={LAYOUTS.main.slots.header}>
         <div className='overview-page__header'>
-          <IconHeading icon={'👨‍💻'} >Developers</IconHeading>
-          <ButtonLink buttonStyle='success' to={navigateToHirePage()}>Hire</ButtonLink>
+          <IconHeading icon={'👨‍💻'}>Developers</IconHeading>
+          <ButtonLink buttonStyle='success' to={navigateToHirePage()}>
+            Hire
+          </ButtonLink>
         </div>
       </Section>
       <Section slot={LAYOUTS.main.slots.content}>

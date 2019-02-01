@@ -9,15 +9,25 @@ import { getRouteParams } from '../../redux/location/selectors'
 import { getDeveloperById } from '../../redux/developers/selectors'
 import UpdateDeveloperForm from '../components/Forms/UpdateDeveloperForm/UpdateDeveloperForm'
 
-function updateDeveloperInfo ({developer}) {
+function updateDeveloperInfo ({ developer }) {
   return (
-    <Page layout={LAYOUTS.main.name} className='update-developer-info-page form-page'>
+    <Page
+      layout={LAYOUTS.main.name}
+      className='update-developer-info-page form-page'
+    >
       <Section slot={LAYOUTS.main.slots.header}>
-        <IconHeading icon={developer.icon}>{developer.firstName} {developer.lastName}</IconHeading>
+        <IconHeading icon={developer.icon}>
+          {developer.firstName} {developer.lastName}
+        </IconHeading>
       </Section>
       <Section slot={LAYOUTS.main.slots.content}>
         <div className='update-developer-info-page__content form-page__content container'>
-          <Link className='link return-to-overview-link' to={navigateToOverviewPage()}>Back to developers</Link>
+          <Link
+            className='link return-to-overview-link'
+            to={navigateToOverviewPage()}
+          >
+            Back to developers
+          </Link>
 
           <UpdateDeveloperForm />
         </div>

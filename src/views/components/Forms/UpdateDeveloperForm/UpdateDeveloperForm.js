@@ -23,19 +23,15 @@ class HireDeveloperForm extends Component {
   }
 
   render () {
-    const {
-      developer,
-      updateDeveloperInfo,
-      fireDeveloper
-    } = this.props
+    const { developer, updateDeveloperInfo, fireDeveloper } = this.props
 
     return (
       <Form
         defaultValues={developer}
-        validate={(values) => {
+        validate={values => {
           const validatedFields = developerValidator(values)
 
-          const isFormInValid = Object.entries(validatedFields).some((field) => {
+          const isFormInValid = Object.entries(validatedFields).some(field => {
             const [, fieldValue] = field
             return !is.null(fieldValue)
           })
@@ -47,17 +43,19 @@ class HireDeveloperForm extends Component {
           return validatedFields
         }}
         validateOnMount
-        onSubmit={(developerData) => {
+        onSubmit={developerData => {
           developerData.id = developer.id
           updateDeveloperInfo(developerData)
         }}
       >
-        {(formApi) => {
+        {formApi => {
           return (
-            <form onSubmit={(e) => {
-              e.preventDefault()
-              formApi.submitForm()
-            }}>
+            <form
+              onSubmit={e => {
+                e.preventDefault()
+                formApi.submitForm()
+              }}
+            >
               <DeveloperFields formApi={formApi} />
               <div className='form-group form-buttons'>
                 <Button
@@ -65,13 +63,13 @@ class HireDeveloperForm extends Component {
                   buttonStyle='success'
                   disabled={!this.state.canSubmit}
                 >
-                 Save
+                  Save
                 </Button>
                 <Button
                   buttonStyle='danger'
                   clickHandler={() => fireDeveloper(developer.id)}
                 >
-                 Fire
+                  Fire
                 </Button>
               </div>
             </form>
@@ -82,7 +80,10 @@ class HireDeveloperForm extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HireDeveloperForm)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HireDeveloperForm)
 
 function mapStateToProps (state) {
   const developerId = getRouteParams(state).id
@@ -93,11 +94,11 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    updateDeveloperInfo: (developerInfo) => {
+    updateDeveloperInfo: developerInfo => {
       dispatch(updateDeveloperInfoAction(developerInfo))
       dispatch(navigateToOverviewPage())
     },
-    fireDeveloper: (developerId) => {
+    fireDeveloper: developerId => {
       dispatch(fireDeveloperActionCreator(developerId))
       dispatch(navigateToOverviewPage())
     }

@@ -9,7 +9,7 @@ import { ROLES } from '../../../config/developers/roles'
 import { FRAMEWORKS } from '../../../config/developers/frameworks'
 import is from '../../../utils/general/is'
 
-function OverviewFilters ({getFilterValue, updateFilter}) {
+function OverviewFilters ({ getFilterValue, updateFilter }) {
   return (
     <div className='overview-filters container'>
       <Select
@@ -17,7 +17,7 @@ function OverviewFilters ({getFilterValue, updateFilter}) {
         name='role-filter'
         value={getFilterValue(FILTERS.ROLE)}
         placeholder='Filter by role'
-        onChange={(data) => {
+        onChange={data => {
           updateFilter({
             filterName: FILTERS.ROLE,
             filterValue: is.set(data) ? data.value : ''
@@ -32,10 +32,10 @@ function OverviewFilters ({getFilterValue, updateFilter}) {
         value={getFilterValue(FILTERS.FRAMEWORKS)}
         multi
         placeholder='Filter by frameworks'
-        onChange={(valueData) => {
+        onChange={valueData => {
           updateFilter({
             filterName: FILTERS.FRAMEWORKS,
-            filterValue: valueData.map((data) => data.value)
+            filterValue: valueData.map(data => data.value)
           })
         }}
         options={convertObjectToSelectOptions(FRAMEWORKS)}
@@ -46,16 +46,19 @@ function OverviewFilters ({getFilterValue, updateFilter}) {
 
 function mapStateToProps (state) {
   return {
-    getFilterValue: (filterName) => getFilterValueAction(state, {filterName})
+    getFilterValue: filterName => getFilterValueAction(state, { filterName })
   }
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    updateFilter: ({filterName, filterValue}) => {
-      dispatch(updateOverviewFilter({filterName, filterValue}))
+    updateFilter: ({ filterName, filterValue }) => {
+      dispatch(updateOverviewFilter({ filterName, filterValue }))
     }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(OverviewFilters)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(OverviewFilters)

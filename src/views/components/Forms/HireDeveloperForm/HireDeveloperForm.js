@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 import { Form } from 'react-form'
 import uuid from 'uuid/v4'
 import { Button } from '../../Button/Button'
-import { DeveloperFields, defaultFieldValues } from '../FormFields/DeveloperFields'
+import {
+  DeveloperFields,
+  defaultFieldValues
+} from '../FormFields/DeveloperFields'
 import { developerValidator } from '../../../../utils/forms/validators/developerValidator'
 import is from '../../../../utils/general/is'
 import { hireDeveloper as hireDeveloperAction } from '../../../../redux/developers/actions'
@@ -20,15 +23,15 @@ class HireDeveloperForm extends Component {
   }
 
   render () {
-    const {hireDeveloper} = this.props
+    const { hireDeveloper } = this.props
 
     return (
       <Form
         defaultValues={defaultFieldValues}
-        validate={(values) => {
+        validate={values => {
           const validatedFields = developerValidator(values)
 
-          const isFormInValid = Object.entries(validatedFields).some((field) => {
+          const isFormInValid = Object.entries(validatedFields).some(field => {
             const [, fieldValue] = field
             return !is.null(fieldValue)
           })
@@ -39,19 +42,21 @@ class HireDeveloperForm extends Component {
 
           return validatedFields
         }}
-        onSubmit={(developerData) => {
+        onSubmit={developerData => {
           developerData.id = uuid()
           developerData.icon = getRandomEmoji()
 
           hireDeveloper(developerData)
         }}
       >
-        {(formApi) => {
+        {formApi => {
           return (
-            <form onSubmit={(e) => {
-              e.preventDefault()
-              formApi.submitForm()
-            }}>
+            <form
+              onSubmit={e => {
+                e.preventDefault()
+                formApi.submitForm()
+              }}
+            >
               <DeveloperFields formApi={formApi} />
               <div className='form-group form-buttons'>
                 <Button
@@ -59,7 +64,7 @@ class HireDeveloperForm extends Component {
                   buttonStyle='success'
                   disabled={!this.state.canSubmit}
                 >
-                 Hire
+                  Hire
                 </Button>
               </div>
             </form>
@@ -70,11 +75,14 @@ class HireDeveloperForm extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(HireDeveloperForm)
+export default connect(
+  null,
+  mapDispatchToProps
+)(HireDeveloperForm)
 
 function mapDispatchToProps (dispatch) {
   return {
-    hireDeveloper: (developerInfo) => {
+    hireDeveloper: developerInfo => {
       dispatch(hireDeveloperAction(developerInfo))
       dispatch(navigateToOverviewPage())
     }

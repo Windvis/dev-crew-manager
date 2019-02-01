@@ -1,4 +1,8 @@
-import { R_UPDATE_DEVELOPER_INFO, R_OVERVIEW, R_HIRE_DEVELOPER } from '../../config/routing/route-types'
+import {
+  R_UPDATE_DEVELOPER_INFO,
+  R_OVERVIEW,
+  R_HIRE_DEVELOPER
+} from '../../config/routing/route-types'
 
 export function navigateTo (routeType, payload) {
   return {
